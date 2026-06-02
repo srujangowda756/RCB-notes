@@ -1,0 +1,9 @@
+year,yeild (ton),price(thousand rupees per ton),rainfall (mm),is_used_fertilizer
+2020,100,10,50,True
+2021,200,20,60,False
+2022,300,30,70,True
+2023,400,40,80,False
+2024,500,50,90,True
+2025,600,60,100,False
+2026,700,70,110,True
+2027,800,80,120,False
