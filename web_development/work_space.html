@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+
+        <input type="text" id="first">
+        <input type="range" id="second">
+        <p id="firstpara">First </p>
+        <p id="secondpara">second </p>
+        <button id="reset">Reset</button>
+        <script>
+            
+            let firstInput = document.getElementById("first");
+            let secondInput = document.getElementById("second");
+            let firstPara = document.getElementById("firstpara");
+            let secondPara = document.getElementById("secondpara");
+            let reset=document.getElementById("reset");
+            secondPara.textContent = "Second: 0";
+            secondInput.value = 0;
+            firstInput.addEventListener("input", () => {
+                firstPara.textContent = "First: " + firstInput.value;
+                
+            });
+            secondInput.addEventListener("input", () => {
+                secondPara.textContent = "Second: " + secondInput.value;
+            });
+            reset.addEventListener("click",()=>{
+                firstInput.value = "";
+                secondInput.value = 0;
+                firstPara.textContent = "First: ";
+                secondPara.textContent = "Second: 0";
+            })
+        </script>
+    </body>
+</html>
