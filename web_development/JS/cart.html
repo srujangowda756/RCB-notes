@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .buttonPack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+
+        .top {
+            height: 20vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .messages-box{ 
+
+            height: 800px;
+            width: 50%;
+            background-color:red;
+            border: 1px solid black;
+        }
+        .messages{
+            height: 120px;
+            width: 100%;
+            overflow-y: auto;
+            border: 1px solid rgb(7, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="cart-size">
+            <h1>Cart Size: <span id="cart-size">0</span></h1>
+        </div>
+        <div class="message-box">
+            <h2>Messages:</h2>
+            <div class="messages"></div>
+        </div>
+    </div>
+    <div class="buttonPack">
+        <div class="buttons">
+            <button id="add-to-cart">Add To Cart</button>
+            <button id="add-2">+2</button>
+            <button id="add-3">+3</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        const cartSize = document.getElementById("cart-size")
+        const addToCart = document.getElementById("add-to-cart")
+        const add2 = document.getElementById("add-2")
+        const add3 = document.getElementById("add-3")
+        const reset = document.getElementById("reset")
+        const messages = document.querySelector(".messages")
+
+        let size = 0
+        addToCart.addEventListener("click",()=>{
+            size=size+1
+            cartSize.innerText=size
+            const message = document.createElement("p")
+            message.innerText="Added 1 item to cart"
+            messages.appendChild(message)
+        })
+        add2.addEventListener("click",()=>{
+            size=size+2
+            cartSize.innerText=size
+            const message = document.createElement("p")
+            message.innerText="Added 2 items to cart"
+            messages.appendChild(message)
+        })
+        add3.addEventListener("click",()=>{
+            size=size+3
+            cartSize.innerText=size
+            const message = document.createElement("p")
+            message.innerText="Added 3 items to cart"
+            messages.appendChild(message)
+        })
+        reset.addEventListener("click",()=>{
+            size=0
+            cartSize.innerText=size
+            const message = document.createElement("p")
+            message.innerText="Cart has been reset"
+            messages.appendChild(message)
+        })
+    </script>
+</body>
+
+</html>

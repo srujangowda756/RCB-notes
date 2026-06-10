@@ -1,82 +1,103 @@
-# # # # '''
-# # # # Abstraction is a oop concept that hides implementaion details and shows only essential features of an object.
-# # # # with the help of abstraction:
-# # # #     - We can hide the internal implementation details
-# # # #     - Improves core maintainability of code
-# # # #     - Enforces a common interface for subclasses
-# # # # '''
-# from abc import ABC, abstractmethod
-# # # # class Animal(ABC):
+# # # # # '''
+# # # # # Abstraction is a oop concept that hides implementaion details and shows only essential features of an object.
+# # # # # with the help of abstraction:
+# # # # #     - We can hide the internal implementation details
+# # # # #     - Improves core maintainability of code
+# # # # #     - Enforces a common interface for subclasses
+# # # # # '''
+# # from abc import ABC, abstractmethod
+# # # # # class Animal(ABC):
     
+# # # # #     @abstractmethod
+# # # # #     def make_sound(self):
+# # # # #         pass
+# # # # # class Dog(Animal):
+# # # # #     def make_sound(self):
+# # # # #         return "Bow Bow"
+# # # # # class Cat(Animal):
+# # # # #     def make_sound(self):
+# # # # #         return "Meow Meow"
+# # # # # d1=Dog()
+# # # # # c1=Cat()
+# # # # # print(d1.make_sound())
+# # # # # print(c1.make_sound())
+
+
+# # # # #example for interface
+# # # # class workabel(ABC):
 # # # #     @abstractmethod
-# # # #     def make_sound(self):
+# # # #     def work(self):
 # # # #         pass
-# # # # class Dog(Animal):
-# # # #     def make_sound(self):
-# # # #         return "Bow Bow"
-# # # # class Cat(Animal):
-# # # #     def make_sound(self):
-# # # #         return "Meow Meow"
-# # # # d1=Dog()
-# # # # c1=Cat()
-# # # # print(d1.make_sound())
-# # # # print(c1.make_sound())
 
+# # # # class Employee(workabel):
+# # # #     def __init__(self,name) -> None:
+# # # #         self.name = name
+# # # #         super().__init__()
+    
+# # # #     def meeting(self):
+# # # #         return "Meeting"
 
-# # # #example for interface
-# # # class workabel(ABC):
+# # # # class Tester(Employee):
+# # # #     def __init__(self,name,id) -> None:
+# # # #         super().__init__(name)
+# # # #         self.id = id
+    
+# # # #     def work(self):
+# # # #         return "Testing"
+    
+
+# # # # class Developer(Employee):
+# # # #     def __init__(self, name, id) -> None:
+# # # #         super().__init__(name)
+# # # #         self.id = id
+    
+# # # #     def work(self):
+# # # #         return "Developing"
+
+# # # # t1=Tester("John", 1)
+# # # # d1=Developer("Jane", 2)
+# # # # print(t1.work())
+# # # # print(d1.work())
+
+# # # class Payment(ABC):
 # # #     @abstractmethod
-# # #     def work(self):
+# # #     def process_payment(self):
 # # #         pass
 
-# # # class Employee(workabel):
-# # #     def __init__(self,name) -> None:
-# # #         self.name = name
-# # #         super().__init__()
+# # # class CreditCardPayment(Payment):
+# # #     def process_payment(self):
+# # #         return "Processing credit card payment"
     
-# # #     def meeting(self):
-# # #         return "Meeting"
-
-# # # class Tester(Employee):
-# # #     def __init__(self,name,id) -> None:
-# # #         super().__init__(name)
-# # #         self.id = id
+# # # class PayPalPayment(Payment):
+# # #     def process_payment(self):
+# # #         return "Processing PayPal payment"
     
-# # #     def work(self):
-# # #         return "Testing"
-    
+# # # cc=CreditCardPayment()
+# # # pp=PayPalPayment()
+# # # print(cc.process_payment())
+# # # print(pp.process_payment())
 
-# # # class Developer(Employee):
-# # #     def __init__(self, name, id) -> None:
-# # #         super().__init__(name)
-# # #         self.id = id
-    
-# # #     def work(self):
-# # #         return "Developing"
 
-# # # t1=Tester("John", 1)
-# # # d1=Developer("Jane", 2)
-# # # print(t1.work())
-# # # print(d1.work())
-
-# # class Payment(ABC):
+# # class flyable(ABC):
 # #     @abstractmethod
-# #     def process_payment(self):
+# #     def fly(self):
 # #         pass
-
-# # class CreditCardPayment(Payment):
-# #     def process_payment(self):
-# #         return "Processing credit card payment"
+# # class swimmable(ABC):
+# #     @abstractmethod
+# #     def swim(self):
+# #         pass
+# # class Duck(flyable, swimmable):
+# #     def fly(self):
+# #         return "Duck is flying"
     
-# # class PayPalPayment(Payment):
-# #     def process_payment(self):
-# #         return "Processing PayPal payment"
+# #     def swim(self):
+# #         return "Duck is swimming"
     
-# # cc=CreditCardPayment()
-# # pp=PayPalPayment()
-# # print(cc.process_payment())
-# # print(pp.process_payment())
+# # d=Duck()
+# # print(d.fly())
+# # print(d.swim())
 
+# from abc import ABC,abstractmethod
 
 # class flyable(ABC):
 #     @abstractmethod
@@ -84,37 +105,35 @@
 #         pass
 # class swimmable(ABC):
 #     @abstractmethod
-#     def swim(self):
+#     def __swim(self):
 #         pass
 # class Duck(flyable, swimmable):
 #     def fly(self):
 #         return "Duck is flying"
     
-#     def swim(self):
+#     def _swimmable__swim(self):
 #         return "Duck is swimming"
     
 # d=Duck()
 # print(d.fly())
-# print(d.swim())
+# print(d._swimmable__swim())
+
+
+
 
 from abc import ABC,abstractmethod
-
-class flyable(ABC):
+class Laptop(ABC):
     @abstractmethod
-    def fly(self):
+    def screen(self):
         pass
-class swimmable(ABC):
-    @abstractmethod
-    def __swim(self):
-        pass
-class Duck(flyable, swimmable):
-    def fly(self):
-        return "Duck is flying"
-    
-    def _swimmable__swim(self):
-        return "Duck is swimming"
-    
-d=Duck()
-print(d.fly())
-print(d._swimmable__swim())
 
+class HP(Laptop):
+    def processor(self):
+        return "HP laptop has Intel processor"
+
+    def screen(self):
+        return "HP laptop has 15.6 inch screen"
+
+h=HP()
+print(h.processor())
+print(h.screen())

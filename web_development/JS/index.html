@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
-    <script src='index.js'></script>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='index.css'> -->
+    <!-- <script src='index.js'></script> -->
+    <style>
+        body {
+            background-color: aqua;
+        }
+    </style>
 </head>
+
 <body>
     <button id="btn">Click Me</button>
+    <script>
+        const button = document.getElementById("btn")
+        let toggle = true
+        button.addEventListener("click", () => {
+            if (toggle) {
+                document.body.style.backgroundColor = "red"
+                document.body.style.color = "white"
+
+            } else {
+                document.body.style.backgroundColor = "aqua"
+                document.body.style.color = "black"
+
+            }
+            toggle = !toggle
+        })
+
+    </script>
 </body>
+
 </html>
